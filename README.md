@@ -13,19 +13,13 @@ By importing this package, generating translatable forms using BootForms is a br
 
 ### Installation
 
-1. In the `require` key of `composer.json` file add the following
-
-    ```json
-    "propaganistas/laravel-translatable-bootforms": "~1.3"
-    ```
-
-2. Run the Composer update command
+1. Run the Composer require command to install the package
 
     ```bash
-    composer update
+    composer require propaganistas/laravel-translatable-bootforms ~1.3
     ```
 
-3. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
+2. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
 
     ```php
     'providers' => [
@@ -35,7 +29,7 @@ By importing this package, generating translatable forms using BootForms is a br
         Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider::class,
     ],
     ```
-4. In your app config, add the Facade to the `$aliases` array
+3. In your app config, add the Facade to the `$aliases` array
 
     ```php
     'aliases' => [
@@ -44,7 +38,7 @@ By importing this package, generating translatable forms using BootForms is a br
     ],
     ```
 
-5. Publish the configuration file
+4. Publish the configuration file
 
     ```bash
     php artisan vendor:publish --provider="Propaganistas\LaravelTranslatableBootForms\TranslatableBootFormsServiceProvider" --tag="config"
