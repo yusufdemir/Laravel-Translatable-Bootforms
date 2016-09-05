@@ -1,7 +1,5 @@
 <?php namespace Propaganistas\LaravelTranslatableBootForms\Form;
 
-use AdamWathan\Form\Binding\BoundData;
-use AdamWathan\Form\Elements\Label;
 use AdamWathan\Form\FormBuilder as _FormBuilder;
 
 class FormBuilder extends _FormBuilder
@@ -22,11 +20,6 @@ class FormBuilder extends _FormBuilder
     public function setLocales(array $locales)
     {
         $this->locales = $locales;
-    }
-
-    public function bind($data)
-    {
-        $this->boundData = new BoundData($data);
     }
 
     /**
