@@ -317,7 +317,7 @@ class TranslatableBootForm
                     $this->setTranslatableLabelIndicator($locale);
                 }
                 if (!empty($this->config['form-group-class'])) {
-                    $this->addMethod('addGroupClass', str_replace('%locale', $locale, 'form-group-translation'));
+                    $this->addMethod('addGroupClass', str_replace('%locale', $locale, $this->config['form-group-class']));
                 }
                 if (!empty($this->config['input-locale-attribute'])) {
                     $this->addMethod('attribute', [$this->config['input-locale-attribute'], $locale]);
