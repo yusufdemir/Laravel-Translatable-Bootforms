@@ -1,5 +1,7 @@
 <?php namespace Propaganistas\LaravelTranslatableBootForms;
 
+use Closure;
+
 class TranslatableBootForm
 {
 
@@ -279,7 +281,7 @@ class TranslatableBootForm
     protected function addMethod($name, $parameters)
     {
         $methods = $this->methods();
-
+        
         $parameters = is_array($parameters) ? $parameters : [$parameters];
 
         $methods[] = compact('name', 'parameters');
@@ -374,7 +376,14 @@ class TranslatableBootForm
 
                 // Call method.
                 if (!empty($methodParameters)) {
-                    call_user_func_array([$element, $methodName], $this->replacePlaceholdersRecursively($methodParameters, $currentLocale));
+                    // Convert closures to values.
+                    $methodParameters = array_map(function($parameter) use ($currentLocale) {
+                        return ($parameter instanceof Closure) ? $parameter($currentLocale) : $parameter;
+                    }, $methodParameters);
+                    
+                    $methodParameters = $this->replacePlaceholdersRecursively($methodParameters, $currentLocale);
+                    
+                    call_user_func_array([$element, $methodName], $methodParameters);
                 } else {
                     $element->{$methodName}();
                 }
