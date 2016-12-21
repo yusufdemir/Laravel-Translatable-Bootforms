@@ -334,5 +334,23 @@ class TestTranslatableBootForms extends TestCase
         $result = $this->form->text('Input', 'input')->render();
         $this->assertEquals($expected, $result);
     }
+    
+    public function testConvertClosureParameters()
+    {
+        $this->configureDatabase();
+
+        $this->form->open()->render();
+        
+        $model = Model::find(1);
+
+        $this->form->bind($model);
+
+        $expected = '<div class="form-group form-group-translation"><label class="control-label" for="en[input]">Input (en)</label><input type="text" name="en[input]" value="custom: translation" id="en[input]" class="form-control" data-language="en"></div><div class="form-group form-group-translation"><label class="control-label" for="nl[input]">Input (nl)</label><input type="text" name="nl[input]" value="custom: vertaling" id="nl[input]" class="form-control" data-language="nl"></div>';
+        $result = $this->form->text('Input', 'input')->value(function($locale) use ($model) {
+            return "custom: " . $model->translate($locale)->input;
+        })->render();
+        
+        $this->assertEquals($expected, $result);
+    }
 
 }
