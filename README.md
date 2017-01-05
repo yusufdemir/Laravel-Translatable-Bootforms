@@ -124,4 +124,16 @@ TranslatableBootForm::text('Name','name')
                     ->addClassForLocale(['en', 'nl'], 'addedClass')
 ```
 
+In case you need to construct name attributes other than `en[name]`, e.g. `item.en.name`, manually insert the `%locale` placeholder in your name attribute. Note that model binding will **break** for these inputs.
+
+```php
+TranslatableBootForm::text('Name','item.%locale.name')
+
+// Output
+<div class="form-group form-group-translation">
+    <label for="item.en.name">Name (en)</label>
+    <input type="text" name="item.en.name" class="form-control" data-language="en" />
+</div>
+```
+
 For customizing the locale indicator in the label (and several other settings), please take a look at the configuration file.
