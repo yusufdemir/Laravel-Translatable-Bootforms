@@ -313,7 +313,7 @@ class TranslatableBootForm
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
                 
-                if (strpos($originalArguments['name'], '%locale) !== false) {
+                if (strpos($originalArguments['name'], '%locale') !== false) {
                     $name = str_replace('%locale', $locale, $originalArguments['name']);
                 } else {
                     $name = $locale . '[' . $originalArguments['name'] . ']';
