@@ -312,7 +312,10 @@ class TranslatableBootForm
             foreach ($locales as $locale) {
                 $this->arguments($originalArguments);
                 $this->methods($originalMethods);
-                $this->overwriteArgument('name', $locale . '[' . $originalArguments['name'] . ']');
+                
+                $name = str_contains($originalArguments['name'], '%locale') ? $originalArguments['name'] : '%locale[' . $originalArguments['name'] . ']';
+                $this->overwriteArgument('name', str_replace('%locale', $locale, $name));
+                
                 if ($this->translatableIndicator()) {
                     $this->setTranslatableLabelIndicator($locale);
                 }
