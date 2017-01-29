@@ -16,8 +16,8 @@
         "dimsav/laravel-translatable": "~5.0|~6.0"
     },
     "require-dev": {
-        "orchestra/testbench": "~3.0",
-        "phpunit/phpunit": "~4.1"
+        "orchestra/testbench": "^2.0|^3.0",
+        "phpunit/phpunit": "^4.0|^5.2"
     },
     "autoload": {
         "psr-4": {
