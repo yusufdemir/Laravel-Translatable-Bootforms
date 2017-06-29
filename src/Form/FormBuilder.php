@@ -38,9 +38,9 @@ class FormBuilder extends _FormBuilder
                 ? $this->boundData->data()->translate($lang)->{$name}
                 : '';
 
-            return $this->escape($value);
+            return $value;
         }
 
-        return $this->escape($this->boundData->get($name, $default));
+        return $this->boundData->get($name, $default);
     }
 }
