@@ -16,7 +16,7 @@ By importing this package, generating translatable forms using BootForms is a br
 1. Run the Composer require command to install the package
 
     ```bash
-    composer require propaganistas/laravel-translatable-bootforms ~1.3
+    composer require propaganistas/laravel-translatable-bootforms
     ```
 
 2. In your app config, add the Service Provider in the `$providers` array **after** `BootFormsServiceProvider` and `TranslatableServiceProvider`
