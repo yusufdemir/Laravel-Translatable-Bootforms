@@ -3,17 +3,15 @@
     "description": "Empowers adamwathan/bootforms with dimsav/laravel-translatable.",
     "keywords": ["laravel", "bootforms", "translatable", "i18n", "form"],
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Propaganistas",
-            "email": "Propaganistas@users.noreply.github.com"
-        }
-    ],
+    "authors": [{
+        "name": "Propaganistas",
+        "email": "Propaganistas@users.noreply.github.com"
+    }],
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "^5.0",
         "adamwathan/form": ">=0.8.0 <0.8.13 || ^0.9",
-        "adamwathan/bootforms": "^0.8",
+        "adamwathan/bootforms": "^0.9",
         "dimsav/laravel-translatable": "^5.0|^6.0|^7.0"
     },
     "require-dev": {
